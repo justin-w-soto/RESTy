@@ -7,6 +7,7 @@ import Display from '../components/Display';
 
 class Container extends Component {
 state = {
+    loading: false,
     url:'',
     method:'',
     body:'',
@@ -21,22 +22,26 @@ handleChangle = (e) => {
 
 handleSubmit = async (e) => {
     e.preventDefault();
-    const display = await getApi(this.state.url);
-    this.setState({ display });
-  
+    // const display = await getApi(this.state.url);
+    // this.setState({ display });
+    this.setState({ loading: true });
+    const display = await getApi(this.state.url, this.state.method, this.state.body)
+    this.setState({ display }); 
+    this.setState({ loading: false, display });
   }
 
 
     render() { 
 
-        const { display } = this.state;
+        const { loading, display } = this.state;
 
         return(
             <>
+            
         <Header />
         <Controls onChange={this.handleChange} onSubmit={this.handleSubmit}/>
         <CrudHistory />
-        <Display display={display}/>
+        { loading ? <h2>Loading...</h2> :<Display display={display}/> }
 
         </>
         )
