@@ -1,4 +1,5 @@
 import React from 'react';
+// import style from '../../main.css';
 
 export default function Controls({ onChange, onSubmit}) {
     return( 

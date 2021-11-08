@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Controls from '../components/Controls';
 import CrudHistory from '../components/CrudHistory';
 import Display from '../components/Display';
+// import style from '../../main.css';
 
 class Container extends Component {
 state = {
@@ -22,8 +23,6 @@ handleChangle = (e) => {
 
 handleSubmit = async (e) => {
     e.preventDefault();
-    // const display = await getApi(this.state.url);
-    // this.setState({ display });
     this.setState({ loading: true });
     const display = await getApi(this.state.url, this.state.method, this.state.body)
     this.setState({ display }); 
@@ -37,7 +36,7 @@ handleSubmit = async (e) => {
 
         return(
             <>
-            
+
         <Header />
         <Controls onChange={this.handleChange} onSubmit={this.handleSubmit}/>
         <CrudHistory />
