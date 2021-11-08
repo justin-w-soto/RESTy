@@ -1,9 +1,11 @@
 import React from 'react';
-import { container } from 'webpack';
+import Container from '../../containers/Container';
 
 export default function App() {
-  return 
-  <>
-  <Container />;
-  </>
+  return (
+     <>
+    <Container />;
+    </>
+    )
+ 
 }
