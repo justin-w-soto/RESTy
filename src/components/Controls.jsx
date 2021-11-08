@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function Controls() {
+export default function Controls({ onChange, onSubmit}) {
     return( 
     
-        <form>
+        <form onChange={onChange} onSubmit={onSubmit}>
 
-        <input type="text" name="url" placeholder="URL" />
+        <input aria-label="url" type="text" name="url" placeholder="URL" />
 
         <section>
 
@@ -28,10 +28,10 @@ export default function Controls() {
           </div>
 
           <button>Submit</button>
-          
+
         </section>
 
-        <textarea name="body" placeholder="raw JSON body"></textarea>
+        <textarea aria-label="body" name="body" placeholder="raw JSON body"></textarea>
 
         </form>
         )
